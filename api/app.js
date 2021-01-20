@@ -16,7 +16,7 @@ const unknownEndpoint = (req, res) => {
   res.status(404).send({ error: "unknown endpoint" })
 }
 
-app.use(cors)
+app.use(cors())
 app.use(express.static("build"))
 app.use(bodyParser.json())
 
@@ -36,7 +36,8 @@ app.get("/", (req, res) => {
 })
 
 app.get("/api", (req, res) => {
-  res.json(JSON.parse(names))
+  console.log(names)
+  res.json(names)
 })
 
 app.use(unknownEndpoint)

@@ -1,22 +1,32 @@
-import logo from "./logo.svg"
-import "./App.css"
+import React, { useEffect, useState } from "react"
+import useAxios from "axios-hooks"
+// import logo from "./solita-logo.svg"
+import Banner from "./components/Banner"
 
 const App = () => {
+  const [names, setNames] = useState()
+
+  const [{ data, loading, error }] = useAxios("http://localhost:3001/api")
+
+  useEffect(() => {
+    if (!loading && data) {
+      console.log(data)
+      setNames(data)
+    }
+    if (error) {
+      console.log("error: ", error)
+    }
+  }, [loading, error, data, setNames])
+
   return (
     <div className="App">
+      <Banner />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {loading || !names ? (
+          <h2 className="App-header">loading...</h2>
+        ) : (
+          names.map((name) => <p>{name.name}</p>)
+        )}
       </header>
     </div>
   )
