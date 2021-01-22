@@ -2,18 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    /* animation: App-logo-spin infinite 20s linear; */
-  }
-}
-
-.App-header {
+.App-container {
   background-color: white;
   min-height: 100vh;
   display: flex;
@@ -22,7 +11,16 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
-  /* color: #282c34; */
+}
+
+.App-banner {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 8vh;
+  color: white;
 }
 
 .App-link {
@@ -38,31 +36,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-.App-banner {
-  background-color: black;
+.card-container {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  padding: 2px 20px;
+  width: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   align-items: center;
-  /* flex-grow: 1; */
-  height: 8vh;
-  color: white;
+  justify-content: space-between;
 }
 
-.App-logo {
-  background-size: contain;
+.namelist-container {
+  width: 67%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* On mouse-over, add a deeper shadow */
+.card-container:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
