@@ -49,6 +49,7 @@ code {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   padding: 2px 20px;
+  margin-top: 10px;
   width: auto;
   display: flex;
   flex-direction: row;
@@ -56,11 +57,28 @@ code {
   justify-content: space-between;
 }
 
-.namelist-container {
-  width: 67%;
+.arrow-container {
+  padding: 2px 20px;
+  margin-top: 10px;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.material-icons {
+  cursor: pointer;
 }
 
 /* On mouse-over, add a deeper shadow */
 .card-container:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.namelist-container {
+  width: 67%;
+}
+
+.banner-button {
 }

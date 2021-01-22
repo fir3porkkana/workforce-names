@@ -11,7 +11,6 @@ const App = () => {
 
   useEffect(() => {
     if (!loading && data) {
-      console.log(data)
       setNames(data)
     }
     if (error) {
@@ -23,7 +22,11 @@ const App = () => {
     <div className="App">
       <Banner />
       <header className="App-container">
-        {loading || !names ? <h2>loading...</h2> : <NameList names={names} />}
+        {loading || !names ? (
+          <h2>loading...</h2>
+        ) : (
+          <NameList names={names} setNames={setNames} />
+        )}
       </header>
     </div>
   )

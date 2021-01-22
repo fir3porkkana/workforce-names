@@ -2,7 +2,7 @@ import React from "react"
 
 const Card = ({ name }) => {
   return (
-    <div class="card-container">
+    <div className="card-container">
       <h4>
         <b>{name.name}</b>
       </h4>
