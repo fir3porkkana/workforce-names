@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import useAxios from "axios-hooks"
-// import logo from "./solita-logo.svg"
 import Banner from "./components/Banner"
 import NameList from "./components/NameList"
 
@@ -16,18 +15,18 @@ const App = () => {
     if (error) {
       console.log("error: ", error)
     }
-  }, [loading, error, data, setNames])
+  }, [loading, error, data])
 
   return (
     <div className="App">
       <Banner />
-      <header className="App-container">
+      <div className="App-container">
         {loading || !names ? (
           <h2>loading...</h2>
         ) : (
           <NameList names={names} setNames={setNames} />
         )}
-      </header>
+      </div>
     </div>
   )
 }
