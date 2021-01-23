@@ -31,13 +31,44 @@ app.use((req, res, next) => {
   next()
 })
 
-app.get("/", (req, res) => {
-  res.send("<h1>Hello World!</h1>")
+app.get("/api", (req, res) => {
+  const numericallySortedNames = names.sort((a, b) =>
+    a.amount > b.amount ? -1 : 1
+  )
+  res.json(numericallySortedNames)
 })
 
-app.get("/api", (req, res) => {
-  console.log(names)
-  res.json(names)
+app.get("/api/:name", (req, res) => {
+  const name = req.params.name
+  let amount = 0
+  console.log(name)
+
+  //if an entry in the list corresponding to the given name
+  //is found, get it's associated amount and return it
+  amount = names.find(
+    (entry) => entry.name === name || entry.name.toLowerCase() === name
+  ).amount
+  console.log(amount)
+  res.json(amount)
+})
+
+app.get("/api/alphabeticalOrder", (req, res) => {
+  const alphabeticallySortedNames = names.sort((a, b) =>
+    a.name < b.name ? -1 : 1
+  )
+  res.json(alphabeticallySortedNames)
+})
+
+app.get("/api/amount/total", (req, res) => {
+  const accumulatedNamecount = names.reduce(
+    (accumulated, current) => accumulated + current.amount,
+    0
+  )
+  res.json(accumulatedNamecount)
+})
+
+app.get("/api/amount/unique", (req, res) => {
+  res.json(names.length)
 })
 
 app.use(unknownEndpoint)
